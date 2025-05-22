@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>IPL Winning Team Predictor</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(to right, #114357, #F29492);
+            color: #fff;
+            text-align: center;
+            padding: 50px;
+            margin: 0;
+        }
+
+        h1 {
+            margin-bottom: 30px;
+            font-size: 2.5rem;
+        }
+
+        form {
+            background: rgba(0, 0, 0, 0.5);
+            padding: 30px 40px;
+            border-radius: 12px;
+            display: inline-block;
+            text-align: left;
+            max-width: 500px;
+        }
+
+        label {
+            display: block;
+            margin-top: 15px;
+            font-weight: bold;
+        }
+
+        select,
+        input[type="number"] {
+            width: 100%;
+            padding: 8px 12px;
+            margin-top: 5px;
+            border: none;
+            border-radius: 5px;
+            font-size: 1rem;
+        }
+
+        input[type="submit"] {
+            margin-top: 25px;
+            padding: 12px 20px;
+            background-color: #00C9A7;
+            border: none;
+            color: white;
+            font-size: 1rem;
+            font-weight: bold;
+            border-radius: 5px;
+            cursor: pointer;
+            width: 100%;
+        }
+
+        input[type="submit"]:hover {
+            background-color: #00a18b;
+        }
+
+        h3 {
+            margin-top: 30px;
+            font-size: 1.8rem;
+            color: #fff;
+        }
+    </style>
+</head>
+<body>
+    <h1>🏏 IPL Winning Team Predictor</h1>
+    <form method="POST" action="/predict">
+        <label>Batting Team:</label>
+        <select name="batting_team" required>
+            <option>Royal Challengers Bangalore</option>
+            <option>Deccan Chargers</option>
+            <option>Mumbai Indians</option>
+            <option>Rajasthan Royals</option>
+            <option>Kings XI Punjab</option>
+            <option>Chennai Super Kings</option>
+            <option>Kolkata Knight Riders</option>
+            <option>Delhi Daredevils</option>
+            <option>Sunrisers Hyderabad</option>
+        </select>
+
+        <label>Bowling Team:</label>
+        <select name="bowling_team" required>
+            <option>Deccan Chargers</option>
+            <option>Delhi Daredevils</option>
+            <option>Chennai Super Kings</option>
+            <option>Kolkata Knight Riders</option>
+            <option>Royal Challengers Bangalore</option>
+            <option>Kings XI Punjab</option>
+            <option>Mumbai Indians</option>
+            <option>Sunrisers Hyderabad</option>
+            <option>Rajasthan Royals</option>
+        </select>
+
+        <label>City:</label>
+        <select name="city" required>
+            <option>Cape Town</option>
+            <option>Delhi</option>
+            <option>Durban</option>
+            <option>Nagpur</option>
+            <option>Centurion</option>
+            <option>Hyderabad</option>
+            <option>Chennai</option>
+            <option>Mumbai</option>
+            <option>Kimberley</option>
+            <option>Indore</option>
+            <option>Port Elizabeth</option>
+            <option>Chandigarh</option>
+            <option>Ahmedabad</option>
+            <option>Jaipur</option>
+            <option>Dharamsala</option>
+            <option>Bangalore</option>
+            <option>Johannesburg</option>
+            <option>Kolkata</option>
+            <option>East London</option>
+            <option>Bloemfontein</option>
+            <option>Cuttack</option>
+        </select>
+
+        <label>Target Score:</label>
+        <input type="number" name="target" required>
+
+        <label>Current Score:</label>
+        <input type="number" name="score" required>
+
+        <label>Overs Completed:</label>
+        <input type="number" step="0.1" name="overs" required>
+
+        <label>Wickets Fallen:</label>
+        <input type="number" name="wickets" required>
+
+        <input type="submit" value="Predict">
+    </form>
+
+    {% if prediction_text %}
+        <h3>{{ prediction_text }}</h3>
+    {% endif %}
+</body>
+</html>
+
