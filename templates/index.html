@@ -100,7 +100,7 @@
 </head>
 <body>
     <div class="container">
-        <img src="https://upload.wikimedia.org/wikipedia/en/5/5d/IPL_2022_logo.png" alt="IPL Logo" class="ipl-logo">
+        <img src="{{ url_for('static', filename='static\images\a4b03c75ebf574b513c013729b3c84b0.png') }}" alt="IPL Logo" width="200">
         <h1>🏏 IPL Winning Team Predictor</h1>
         <form method="POST" action="/predict">
             <label for="batting_team">Batting Team:</label>
